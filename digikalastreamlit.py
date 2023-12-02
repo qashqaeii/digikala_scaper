@@ -150,14 +150,14 @@ def scrape_data(brand_var, sort_var, checkbox_var):
     return df
 
 #Set up the Streamlit app
-st.set_page_config(layout="wide",page_title="DigiKala Scaper",page_icon="📱")
+st.set_page_config(layout="centered",page_title="DigiKala Scaper",page_icon="📱")
 col1, col2 = st.columns([1, 2])
 col2.title("استخراج اطلاعات آنلاین گوشی موبایل از دیجی کالا")
 col2.markdown("میتوانید به صورت آنلاین برای استخراج قیمت های موبایل و مقایسه آنها در سایت دیجی کالا ، استفاده کنید")
-    
+
 col1.image("digikala.png", width=200)
 st.markdown("---")
-st.write("Developed by : HOSSEIN QASHQAEII 🧛 - ✉️ Email: qashqaeii.ps4@gmail.com ✉️)")
+st.write("Developed by : HOSSEIN QASHQAEII 🧛 - ✉️ وبسایت : www.webscraper.ir ✉️)")
 st.title(" ")
 st.write("میتوانید به صورت آنلاین برای استخراج قیمت های موبایل و مقایسه آنها در سایت دیجی کالا ، استفاده کنید")
 
@@ -166,7 +166,7 @@ sort_var = st.selectbox("مرتب سازی بر اساس:", list(sort_mapping.ke
 checkbox_var = st.checkbox("شامل محصولات ناموجود", value=False)
 if st.button("شروع استخراج"):
 
-    
+
     start_time = time.time()
     df = scrape_data(brand_var, sort_var, checkbox_var)
     progress_bar = st.progress(0)
@@ -186,5 +186,3 @@ if st.button("شروع استخراج"):
     excel_file.seek(0)
     download_button = st.download_button("Download Excel 💾", data=excel_file, file_name=f'data{brand_var}(Developed-by-HOSSEIN-QASHQAEII).xlsx')
 st.markdown("---")
-
-
